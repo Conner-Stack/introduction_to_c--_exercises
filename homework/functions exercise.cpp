@@ -113,7 +113,7 @@ int arraymin(int arrayvar[], int arraylength)
 	return min;
 
 }
-int arraymult(int inputarray[], int arraylength, int outputarray[])
+void arraymult(int inputarray[], int arraylength, int outputarray[])
 {
 	int mult = 0;
 
@@ -124,7 +124,6 @@ int arraymult(int inputarray[], int arraylength, int outputarray[])
 		outputarray[i] = mult;
 		cout << mult << endl;
 	}
-	return 0;
 }
 int main()
 {
@@ -183,9 +182,9 @@ int main()
 	int result = arraymin(integer_array, 7);
 	cout << result << endl;*/
 
-	int integer_array[7] = { 10, 15, 7, 4, 13, 19, 8 };
-	int output_array[7] = {};
-	arraymult(integer_array, 7 , output_array);
-system("pause");
-	return 0;
+//	int integer_array[7] = { 10, 15, 7, 4, 13, 19, 8 };
+//	int output_array[7] = {};
+//	arraymult(integer_array, 7 , output_array);
+//system("pause");
+//	return 0;
 }
