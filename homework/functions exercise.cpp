@@ -113,22 +113,68 @@ int arraymin(int arrayvar[], int arraylength)
 	return min;
 
 }
+//question 10
 void arraymult(int inputarray[], int arraylength, int outputarray[])
 {
-	int mult = 0;
+
 
 	for (int i = 0; i < arraylength; i++)
 	{
-		
-		mult = inputarray[i] * i;
-		outputarray[i] = mult;
-		cout << mult << endl;
+		outputarray[i] = inputarray[i] * i;
+		cout << outputarray[i] << endl;
 	}
+	
+}
+
+//question 11
+
+void arraysum(int arrayin1[], int arrayin2[], int arraylength, int arrayout[])
+{
+	for (int i = 0; i < arraylength; i++)
+	{
+		arrayout[i] = arrayin1[i] + arrayin2[i];
+
+		cout << arrayout[i] << endl;
+	}
+}
+//question 12
+void arraysequence( int array_input[], int arraylength)
+{
+	int sum = 0;
+	for (int i = 0; i < arraylength; i++)
+	{
+		sum = sum + array_input[i];
+		cout << sum << endl;
+
+
+	}
+}
+
+//question 13
+int onenum(int thearray[], int arraylength, int numfound)
+{
+	
+
+	for (int i = 0; i < arraylength; i++)
+	{
+		if (thearray[i] == numfound)
+		{
+			numfound = i;
+			break;
+		}
+		else if (thearray[i] != numfound)
+		{
+			numfound = -1;
+			
+
+		}
+	}
+
+	return numfound;
 }
 int main()
 {
 	//ANSWERS AFTER QUESTION 1 WILL BE SUBMITTED AS FUNCTIONS.
-	
 	
 	
 //	question 1
@@ -187,4 +233,42 @@ int main()
 //	arraymult(integer_array, 7 , output_array);
 //system("pause");
 //	return 0;
+
+//question 9 check	
+	//int integer_array[7] = { 10, 15, 7, 4, 13, 19, 8 };
+	//int result = arraymin(integer_array, 7);
+	//cout << result << endl; 
+	//system("pause");
+	//return 0;
+
+	//Question 10 check
+	//int integer_array[7] = { 10, 15, 7, 4, 13, 19, 8 };
+	//int output_array[7] = {};
+	//arraymult(integer_array, 7, output_array);
+	//system("pause");
+	//return 0;
+//Question 11 check
+
+	//int array1[5] = { 5, 10, 4, 12, 5 };
+	//int array2[5] = { 7 , 2 , 0 , 4 , 6 };
+	//int arrayout[5] = {};
+	//arraysum(array1, array2, 5, arrayout);
+	//system("pause");
+	//return 0;
+
+	//Question 12 check
+	/*int arrayinput[5] = { 1, 2, 3, 4, 5 };
+	arraysequence(arrayinput, 5);
+	system("pause");*/
+	
+	//Question 13 check
+	int arrayinput[5] = { 1 , 2 , 3 , 4 , 5 };
+	int numfound;
+	cin >> numfound;
+	int result = onenum(arrayinput, 5, numfound);
+	cout << result << endl;
+	system("pause");
+	return 0;
 }
+
+
