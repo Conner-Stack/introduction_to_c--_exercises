@@ -153,27 +153,69 @@ void arraysequence( int array_input[], int arraylength)
 //question 13
 int onenum(int thearray[], int arraylength, int numfound)
 {
-	
-
-	for (int i = 0; i < arraylength; i++)
+	bool found = false;
+	int i= 0;
+	while (found == false)
 	{
-		if (thearray[i] == numfound)
+		
+		if (i < arraylength)
 		{
-			numfound = i;
-			break;
+				
+			if (thearray[i] == numfound)
+			{
+				found = true;
+				numfound = i;
+				return numfound;
+			}
+i++;
 		}
-		else if (thearray[i] != numfound)
+		else
 		{
+			found = true;
 			numfound = -1;
-			
-
+			return numfound;
 		}
+
 	}
 
-	return numfound;
 }
+
+//question 14
+int Split(int inputarray[], int arraylength, int output1[], int output2[])
+{
+
+	
+	
+		for (int i = 0; i < arraylength; i++)
+		{
+			if (inputarray[i] < 0)
+			{
+				output1[i] = inputarray[i];
+				return output1[i];
+			}
+
+			else if (inputarray[i] >= 0)
+			{
+				output2[i] = inputarray[i];
+			}
+
+
+
+	}
+}
+
+
 int main()
 {
+	//int arrayinput[10] = { 1, -12, -15, 12, 3, 4, -21, 1, 24, 4 };
+	//int negatives[10]{};
+	//int positives[10] = {};
+	//int result = Split(arrayinput, 10, negatives, positives);
+	//cout << result << endl;
+	//system("pause");
+	//return 0;
+
+
 	//ANSWERS AFTER QUESTION 1 WILL BE SUBMITTED AS FUNCTIONS.
 	
 	
@@ -262,13 +304,22 @@ int main()
 	system("pause");*/
 	
 	//Question 13 check
-	int arrayinput[5] = { 1 , 2 , 3 , 4 , 5 };
-	int numfound;
-	cin >> numfound;
-	int result = onenum(arrayinput, 5, numfound);
+	//int arrayinput[5] = { 1 , 2 , 3 , 4 , 5 };
+	//int numfound;
+	//cin >> numfound;
+	//int result = onenum(arrayinput, 5, numfound);
+	//cout << result << endl;
+	//system("pause");
+	//return 0;
+
+int arraynums[5] = { 4 , 5, -2 , 12 , -5 };
+int arrout1[5] = {};
+int arrout2[5] = {};
+	int result = Split(arraynums, 5, arrout1, arrout2);
 	cout << result << endl;
 	system("pause");
 	return 0;
+
 }
 
 
