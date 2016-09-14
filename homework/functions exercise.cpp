@@ -182,10 +182,7 @@ i++;
 
 //question 14
 int Split(int inputarray[], int arraylength, int output1[], int output2[])
-{
-
-	
-	
+{	
 		for (int i = 0; i < arraylength; i++)
 		{
 			if (inputarray[i] < 0)
@@ -241,13 +238,17 @@ int main()
 //	{
 //		int result;
 //		result = x + y;
-//	}//	you need to return the result or just return x + y//	int sum(int n)
+//	}
+//	you need to return the result or just return x + y
+//	int sum(int n)
 //	{
 //		if (0 == n)
 //			return 0;
 //	else
 //			n = n + n;
-//	}//	you need to return n in the else statement//#include <iostream>
+//	}
+//	you need to return n in the else statement
+//#include <iostream>
 //	int main()
 //	{
 //		double x = 13.6;
@@ -257,7 +258,8 @@ int main()
 //int square(int x)
 //{
 //	return x * x;
-//}//	 you need to initialize the int square function outside of the main function
+//}
+//	 you need to initialize the int square function outside of the main function
 	
 //Question 8 code	
 /*int integer_array[5] = { 7, 3, 2, 4, 9 };
