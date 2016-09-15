@@ -12,8 +12,8 @@ int main()
 	cout << "you picked letter: " << letterblock << endl;
 	int result = daString.compare("Hello");
 	cout << "is value the same? " << result << endl;
-	char append = daString.append("hola");
-	cout << "string appended to prior string " << append << endl;
+	/*char append = daString.append("hola");
+	cout << "string appended to prior string " << append << endl;*/
 	
 	
 	system("pause");

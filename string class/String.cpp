@@ -13,35 +13,37 @@ Strings::Strings(char newString[])
 	for (i = 0; newString[i] != '\0'; i++)
 	{
 		//the value of value in each iteration is equal to the value of newString up to the null terminating character
-		value[i] = newString[i];
+		m_value[i] = newString[i];
+		
 	}
+m_length = i;
 	//breaks out at the null terminator for newString, making the value of i indexed as the null term.
-	value[i] = '\0';
+	m_value[i] = '\0';
+	
 }
+
+
+
 
 //returns the string length
 int Strings::length()
 {
-	//sets the index to 0
-	int i = 0;
-	//looping through the character array until it hits the null terminator
-	while (value[i] != '\0')
-	{
-		//increments through the array until it hits the null terminator then breaks out the loop
-		i++;
-		
-}
-	//returns the value of i
-	return i;
+	return m_length;
 
 }
+
+
+
 //I'm sure the function in here is how to get the char in the certain index you are looking for, trying to figure out how to pass the word into it.
 char Strings::indexchar(int index)
 {
-	char character;	
-	character = (value[index] != '\0' && value[index] >=0) ? value[index] : '?';
+	char character;
+	character = (m_value[index] != '\0' && m_value[index] >= 0) ? m_value[index] : '?';
 	return character;
 }
+
+
+
 //added an argument as input for another string for comparison
 char Strings::compare(char extraString[])
 {
@@ -49,44 +51,28 @@ char Strings::compare(char extraString[])
 	int result = 0;
 	int i = 0;
 
-	//setting a loop to iterate through every character in the arrays
-	while (value[i] != '\0' && extraString[i] != '\0')
+	//setting a loop to iterate through every character in the arrays until one of them hits the null character
+	while (m_value[i] != '\0' || extraString[i] != '\0')
 	{
-		//states that if the character in value is the same as the character in the extra string, i will iterate +1 and the result will equal 0- or the same;
-		if (value[i] == extraString[i])
-		{
-			result = 0;
-			i++;
+		//setting up what i want my result to be dependant on true or false values
+		result = ((int)m_value[i] == (int)extraString[i]) ? 0 : ((int)m_value[i] > (int)extraString[i]) ? 1 : -1;
+		//if there is a descrepency between two letters, will break out with the value recieved, lexicographically ordered.
+		if (result == -1 || result == 1)
 			break;
-		}
-		//states that if a letter's integer value in value is greater than that of the one in extraString, that result is set to 1;  
-		else if (value[i] > extraString[i])
-		{
-			result = 1;
-			break;
-		}
-		else if (value[i] < extraString[i])
-		{
-			result = -1;
-			break;
-		}
-		
+		i++;
 	}
 	return result;
 }
-char Strings::append(char someString[])
-{
-	int i = 0;
-	while (someString[i] != '\0')
-	{
-		value[i] = someString[i];
-		someString++;
-		value[i]++;
-	}
-	value[i] = 0;
 
-	return someString[255];
-}
+
+//char Strings::append(char someString[])
+//{
+//
+//
+//
+//
+//
+//}
 
 
 
