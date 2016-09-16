@@ -4,6 +4,10 @@
 
 using namespace std;
 
+Strings::Strings()
+{
+}
+
 //this lets me input a string and makes the string in private equal to it
 Strings::Strings(char newString[])
 {
@@ -18,8 +22,7 @@ Strings::Strings(char newString[])
 	}
 m_length = i;
 	//breaks out at the null terminator for newString, making the value of i indexed as the null term.
-	m_value[i] = '\0';
-	
+m_value[i] = '\0';
 }
 
 
@@ -63,36 +66,86 @@ char Strings::compare(char extraString[])
 	}
 	return result;
 }
+Strings Strings::append(Strings stringAppend)
+{
+	int newsize = this -> length() + stringAppend.length() ;
+	char* afg = new char [newsize];
+	for (int i = 0; i < this->length(); i++)
+	{
+
+		afg[i] = this->m_value[i];
+
+	}
+	
+	for (int i = this -> length(); i < stringAppend.length() + this -> length(); i++)
+	{
+		int offset = i - this -> length();
+		afg[i] = stringAppend.m_value[offset];
+
+	}
+	afg[newsize] = '\0';
+	return Strings(afg);
+
+}
+Strings Strings::prepend(Strings stringPrepend)
+{
+	int newsize = stringPrepend.length() + this -> length();
+	char* afg = new char[newsize];
+	for (int i = 0; i < stringPrepend.length(); i++)
+	{
+
+		afg[i] = stringPrepend.m_value[i];
+
+	}
+
+	for (int i = stringPrepend.length(); i < this -> length() + stringPrepend.length(); i++)
+	{
+		int offset = i - stringPrepend.length();
+		afg[i] = this -> m_value[offset];
+
+	}
+	afg[newsize] = '\0';
+	return Strings(afg);
+
+}
+void Strings::printWord()
+	{
+			for (int i = 0; i < this -> m_length; i++)
+			{
+				printf("%c", this -> m_value[i]);
+			}
+			printf("\n\n");
+	}
+
+const char* Strings::constant()
+{		
+	return m_value;
+}
+
+char Strings::lowercase()
+{
+	char lowercase[255];
+	int dickbutt;
+	for (int i = 0; i < this->length(); i++)
+	{
+		if (this->m_value[i] >= 65 && this->m_value[i] <= 90)
+		{
+			dickbutt = (int)m_value[i];
+			dickbutt = dickbutt + 32;
+			lowercase[i] = (char)dickbutt;
+		}
+		else if (this->m_value[i] >= 97 && this->m_value[i] <= 122)
+		{
+			lowercase[i] = m_value[i];
+		}
+		
 
 
-//char Strings::append(char someString[])
-//{
-//
-//
-//
-//
-//
-//}
+	}
+
+lowercase[length()] = '\0';
+
+return 
+}
 
 
-
-
-//int main()
-//{
-//	char name1[20];
-//	char name2[20];
-//	char tmp[20];
-//
-//	cin >> name1 >> name2;
-//
-//
-//	strcpy_s(tmp, name1);
-//	strcpy_s(name1, name2);
-//	strcpy_s(name2, tmp);
-//	
-//
-//	cout << endl << name1 << endl << name2 << endl;
-//
-//	system("pause");
-//	return 0;
-//}
