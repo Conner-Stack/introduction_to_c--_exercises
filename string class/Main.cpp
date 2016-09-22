@@ -11,16 +11,18 @@ int main()
 	cout << "the length of your word is: " << length << endl;
 	char letterblock = daString.indexchar(4);
 	cout << "you picked letter: " << letterblock << endl;
-	int result = daString.compare("Hello");
-	cout << "is value the same? " << result << endl;
+	Strings result = daString.compare("Hello");
+	result.printWord();
 	Strings appendedString = daString.append(daString2);
 	appendedString.printWord();
 	Strings PrependedString = daString.prepend(daString2);
 	PrependedString.printWord();
 	const char* constant = daString.constant();
 	cout << constant << endl;
-	char lowercase = daString.lowercase();
-	cout << lowercase << endl;
+	Strings lowercase = daString.lowercase();
+	lowercase.printWord();
+	Strings uppercase = daString.uppercase();
+	uppercase.printWord();
 	system("pause");
 	return 0;
 }

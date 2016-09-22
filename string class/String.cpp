@@ -48,23 +48,29 @@ char Strings::indexchar(int index)
 
 
 //added an argument as input for another string for comparison
-char Strings::compare(char extraString[])
+Strings Strings::compare(Strings extraString)
 {
 	//setting variables for the result and the indexer
-	int result = 0;
+	char yes[4] = "yes";
+	char no[3] = "no";
+	bool compare = true;
 	int i = 0;
 
 	//setting a loop to iterate through every character in the arrays until one of them hits the null character
-	while (m_value[i] != '\0' || extraString[i] != '\0')
+	while (this->m_value[i] != '\0' || extraString.m_value[i] != '\0')
 	{
-		//setting up what i want my result to be dependant on true or false values
-		result = ((int)m_value[i] == (int)extraString[i]) ? 0 : ((int)m_value[i] > (int)extraString[i]) ? 1 : -1;
-		//if there is a descrepency between two letters, will break out with the value recieved, lexicographically ordered.
-		if (result == -1 || result == 1)
-			break;
+		if (this->m_value[i] == extraString.m_value[i])
+		{
+			compare = true;
+		}
+		else if (this->m_value[i] != extraString.m_value[i])
+		{
+			compare = false;
+			return Strings(no);
+		}
 		i++;
 	}
-	return result;
+	return Strings(yes);
 }
 //not sure why I'm using Strings as a function type and an argument nor how i can
 Strings Strings::append(Strings stringAppend)
@@ -114,15 +120,15 @@ Strings Strings::prepend(Strings stringPrepend)
 	return Strings(afg);
 
 }
-//this is just a reference for how printf works that jeremy gave me
-//void Strings::printWord()
-//	{
-//			for (int i = 0; i < this -> m_length; i++)
-//			{
-//				printf("%c", this -> m_value[i]);
-//			}
-//			printf("\n\n");
-//	}
+//this is so i can print out all the characters in a string
+void Strings::printWord()
+	{
+			for (int i = 0; i < this -> m_length; i++)
+			{
+				printf("%c", this -> m_value[i]);
+			}
+			printf("\n");
+	}
 
 
 
@@ -132,70 +138,49 @@ const char* Strings::constant()
 	return m_value;
 }
 
-char Strings::lowercase()
+Strings Strings::lowercase()
 {
-	/*the only thing i can't get to work is for this to return all the characters it needs to. I can only return statically
-	which won't work if the string changes to a larger or smaller array*/
-	char result[255];
-	//the value to change the character from uppercase to lowercase
 	int asciivalue;
-	//not sure if i need the pointer yet, however I'm still trying to find ways to get this right so it's still here.
-	char* stringptr;
-	//made a for loop so i could iterate through the array
+	char* stringptr = &m_value[0];
 	for (int i = 0; i < this->length(); i++)
 	{
-		//if statement stating if it's an uppercase letter, i should do something with it
 		if (this->m_value[i] >= 65 && this->m_value[i] <= 90)
 		{
-			//states that the asciivalue integer is set to be equal to the int value of m_value each iteration
 			asciivalue = (int)m_value[i];
-			//adding 32 to change the integer value as it appears on the ascii chart
 			asciivalue += 32;
-			//the spot in the array is now set to the lowercase char
-			result[i] = (char)asciivalue;
+			stringptr[i] = (char)asciivalue;
 		}
-		//this is if otherwise the char is lowercase to begin with do something else
 		else if (this->m_value[i] >= 97 && this->m_value[i] <= 122)
 		{
-			//the character of lowercase is equal to the character of m_value
-			result[i] = m_value[i];
+			stringptr[i] = m_value[i];
 		}
-
-	//and after this I'm not sure how to return the populated array, trying things like pointers but it always comes out the same
-		stringptr = &result[i];
-	
 	}
-	//sets the spot after the last character to null by default
-	result[length()] = '\0';
 
-	//return will break out of the function even if it's in a loop, so I don't know how to populate it
-	return *stringptr;
+	stringptr[length()] = '\0';
+		return Strings(stringptr);
 }
 
-char uppercase()
+Strings Strings::uppercase()
 {
+	int asciivalue;
+	char*stringptr = &m_value[0];
 
-
-
-
-
-
+	for (int i = 0; i < this->length(); i++)
+	{
+		if (this->m_value[i] >= 97 && this->m_value[i] <= 122)
+		{
+			asciivalue = (int)m_value[i];
+			asciivalue -= 32;
+			stringptr[i] = (char)asciivalue;
+	}
+		else if (this->m_value[i] >= 65 && this->m_value[i] <= 90)
+		{
+			stringptr[i] = m_value[i];
+		}
+	}
+	stringptr[length()] = '\0';
+	return Strings(stringptr);
 }
-
-
-
-char substring()
-{
-	char substring[255];
-
-
-
-
-
-
-
-}
-
 
 
 
