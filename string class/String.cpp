@@ -48,11 +48,9 @@ char Strings::indexchar(int index)
 
 
 //added an argument as input for another string for comparison
-Strings Strings::compare(Strings extraString)
+bool Strings::compare(Strings extraString)
 {
 	//setting variables for the result and the indexer
-	char yes[4] = "yes";
-	char no[3] = "no";
 	bool compare = true;
 	int i = 0;
 
@@ -66,11 +64,11 @@ Strings Strings::compare(Strings extraString)
 		else if (this->m_value[i] != extraString.m_value[i])
 		{
 			compare = false;
-			return Strings(no);
+			break;
 		}
 		i++;
 	}
-	return Strings(yes);
+	return compare;
 }
 //not sure why I'm using Strings as a function type and an argument nor how i can
 Strings Strings::append(Strings stringAppend)
@@ -181,7 +179,6 @@ Strings Strings::uppercase()
 	stringptr[length()] = '\0';
 	return Strings(stringptr);
 }
-
 
 
 

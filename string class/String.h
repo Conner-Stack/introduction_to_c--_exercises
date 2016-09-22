@@ -11,7 +11,7 @@ public:
 	Strings(char[]);
 	int length();
 	char indexchar(int);
-	Strings compare(Strings);
+	bool compare(Strings);
 	Strings append(Strings);
 	Strings prepend(Strings);
 	const char* constant();

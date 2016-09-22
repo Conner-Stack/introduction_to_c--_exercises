@@ -11,8 +11,8 @@ int main()
 	cout << "the length of your word is: " << length << endl;
 	char letterblock = daString.indexchar(4);
 	cout << "you picked letter: " << letterblock << endl;
-	Strings result = daString.compare("Hello");
-	result.printWord();
+	bool result = daString.compare(daString2);
+	cout << "is the length true or false? " << result << endl;
 	Strings appendedString = daString.append(daString2);
 	appendedString.printWord();
 	Strings PrependedString = daString.prepend(daString2);
