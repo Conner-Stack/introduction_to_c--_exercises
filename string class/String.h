@@ -13,9 +13,12 @@ public:
 	char indexchar(int);
 	char compare(char[]);
 	Strings append(Strings);
-	void printWord();
 	Strings prepend(Strings);
 	const char* constant();
 	char lowercase();
-
+	char uppercase();
+	char substring();
+	char substring2();
+	char sub2sub();
+	char inputstring();
 };

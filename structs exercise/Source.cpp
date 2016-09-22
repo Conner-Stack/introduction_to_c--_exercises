@@ -30,13 +30,41 @@ void player()
 
 struct rectangle
 {
-	int posX;
-	int posY;
-	int point1, point2, point3, point4;
+	float point1, point2, point3, point4;
 	int colour;
 };
 
+struct player2
+{
+	int health;
+	int score;
+
+
+};
+
+
+void second()
+{
+	rectangle rectangle = { 2.3f, 4.3f, -2.3f, -4.3f };
+
+	player2 frank;
+
+	cin >> frank.health >> frank.score;
 
 
 
-int main();
+
+
+}
+int main()
+{
+
+
+
+
+
+
+
+	system("pause");
+	return 0;
+}

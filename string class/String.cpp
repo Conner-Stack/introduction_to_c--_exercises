@@ -66,10 +66,14 @@ char Strings::compare(char extraString[])
 	}
 	return result;
 }
+//not sure why I'm using Strings as a function type and an argument nor how i can
 Strings Strings::append(Strings stringAppend)
 {
+	//made an integer to up the array to accomodate the new appended string
 	int newsize = this -> length() + stringAppend.length() ;
+	//not exactly sure what this does
 	char* afg = new char [newsize];
+	//jeremy helped me from here on out but i couldn't really grasp what any of this does
 	for (int i = 0; i < this->length(); i++)
 	{
 
@@ -87,6 +91,8 @@ Strings Strings::append(Strings stringAppend)
 	return Strings(afg);
 
 }
+
+//figured this would be the same thing as above, but backwards
 Strings Strings::prepend(Strings stringPrepend)
 {
 	int newsize = stringPrepend.length() + this -> length();
@@ -108,15 +114,19 @@ Strings Strings::prepend(Strings stringPrepend)
 	return Strings(afg);
 
 }
-void Strings::printWord()
-	{
-			for (int i = 0; i < this -> m_length; i++)
-			{
-				printf("%c", this -> m_value[i]);
-			}
-			printf("\n\n");
-	}
+//this is just a reference for how printf works that jeremy gave me
+//void Strings::printWord()
+//	{
+//			for (int i = 0; i < this -> m_length; i++)
+//			{
+//				printf("%c", this -> m_value[i]);
+//			}
+//			printf("\n\n");
+//	}
 
+
+
+//simply changes m_value to a constant char
 const char* Strings::constant()
 {		
 	return m_value;
@@ -124,28 +134,77 @@ const char* Strings::constant()
 
 char Strings::lowercase()
 {
-	char lowercase[255];
-	int dickbutt;
+	/*the only thing i can't get to work is for this to return all the characters it needs to. I can only return statically
+	which won't work if the string changes to a larger or smaller array*/
+	char result[255];
+	//the value to change the character from uppercase to lowercase
+	int asciivalue;
+	//not sure if i need the pointer yet, however I'm still trying to find ways to get this right so it's still here.
+	char* stringptr;
+	//made a for loop so i could iterate through the array
 	for (int i = 0; i < this->length(); i++)
 	{
+		//if statement stating if it's an uppercase letter, i should do something with it
 		if (this->m_value[i] >= 65 && this->m_value[i] <= 90)
 		{
-			dickbutt = (int)m_value[i];
-			dickbutt = dickbutt + 32;
-			lowercase[i] = (char)dickbutt;
+			//states that the asciivalue integer is set to be equal to the int value of m_value each iteration
+			asciivalue = (int)m_value[i];
+			//adding 32 to change the integer value as it appears on the ascii chart
+			asciivalue += 32;
+			//the spot in the array is now set to the lowercase char
+			result[i] = (char)asciivalue;
 		}
+		//this is if otherwise the char is lowercase to begin with do something else
 		else if (this->m_value[i] >= 97 && this->m_value[i] <= 122)
 		{
-			lowercase[i] = m_value[i];
+			//the character of lowercase is equal to the character of m_value
+			result[i] = m_value[i];
 		}
-		
 
-
+	//and after this I'm not sure how to return the populated array, trying things like pointers but it always comes out the same
+		stringptr = &result[i];
+	
 	}
+	//sets the spot after the last character to null by default
+	result[length()] = '\0';
 
-lowercase[length()] = '\0';
-
-return 
+	//return will break out of the function even if it's in a loop, so I don't know how to populate it
+	return *stringptr;
 }
+
+char uppercase()
+{
+
+
+
+
+
+
+}
+
+
+
+char substring()
+{
+	char substring[255];
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 

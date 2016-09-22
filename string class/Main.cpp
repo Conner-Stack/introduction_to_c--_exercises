@@ -20,6 +20,7 @@ int main()
 	const char* constant = daString.constant();
 	cout << constant << endl;
 	char lowercase = daString.lowercase();
+	cout << lowercase << endl;
 	system("pause");
 	return 0;
 }
