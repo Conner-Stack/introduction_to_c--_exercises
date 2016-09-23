@@ -179,10 +179,116 @@ Strings Strings::uppercase()
 	stringptr[length()] = '\0';
 	return Strings(stringptr);
 }
+bool Strings::substring(Strings substring)
+{
+	bool found = false;
+	for (int i = 0; i < this->length(); i++)
+	{
+		if (found == true)
+		{
+			return true;
+		}
+		if (this->m_value[i] == m_value[i])
+		{
+			for (int j = 0; j < substring.length(); j++)
+			{
+				if (this->m_value[ i + j ] == substring.m_value[j])
+				{
+					found = true;
+					index = i;
+				}
+				else
+				{
+					index = 0;
+					found = false;
+				}
+			}
+		}
+	}
+	return found;
+}
+
+bool Strings::substring2(Strings substring, int e)
+{
+	bool found = false;
+	for (int i = e; i < this->length(); i++)
+	{
+		if (found == true)
+		{
+			return true;
+		}
+		if (this->m_value[i] == m_value[i])
+		{
+			for (int j = 0; j < substring.length(); j++)
+			{
+				if (this->m_value[i + j] == substring.m_value[j])
+				{
+					found = true;
+					index = i;
+				}
+				else
+				{
+					index = 0;
+					found = false;
+				}
+			}
+		}
+	}
+	return found;
+}
+
+Strings Strings::sub2sub(Strings substrig, Strings replacement)
+{
+	
+	substring(substrig);
+
+	int wordsize = this->length() - substrig.length() + replacement.length();
+	char* ptr = new char[wordsize];
+	
+	for (int i = 0; i < index; i++)
+	{
+		ptr[i] = this->m_value[i];
+
+	}
+	for (int i = index, j = 0; i < replacement.length() + index; i++, j++)
+	{
+
+
+	}
 
 
 
+	return ;
+}
 
+void test()
+{
+Strings daString = Strings("Hello");
+	Strings daString2 = Strings("goodbye");
+	Strings SubStringfind = Strings("el");
+	int length = daString.length();
+	cout << "the length of your word is: " << length << endl;
+	char letterblock = daString.indexchar(4);
+	cout << "you picked letter: " << letterblock << endl;
+	bool result = daString.compare(daString2);
+	cout << "is the length true or false? " << result << endl;
+	Strings appendedString = daString.append(daString2);
+	appendedString.printWord();
+	Strings PrependedString = daString.prepend(daString2);
+	PrependedString.printWord();
+	const char* constant = daString.constant();
+	cout << constant << endl;
+	Strings lowercase = daString.lowercase();
+	lowercase.printWord();
+	Strings uppercase = daString.uppercase();
+	uppercase.printWord();
+	bool found = daString.substring(SubStringfind);
+	(found == true) ? cout << "found it!" << endl : cout << "nosir" << endl;
+	bool found2 = daString.substring2(SubStringfind, 3);
+	(found == true) ? cout << "found" << endl : cout << "nope" << endl;
+
+
+}
 
 
 

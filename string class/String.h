@@ -6,6 +6,7 @@ class Strings
 private: 
 	char m_value[255];
 	int m_length;
+	int index;
 public:
 	Strings::Strings();
 	Strings(char[]);
@@ -18,8 +19,9 @@ public:
 	void printWord();
 	Strings lowercase();
 	Strings uppercase();
-	Strings substring();
-	Strings substring2();
+	bool substring(Strings);
+	bool substring2(Strings, int);
 	Strings sub2sub();
 	Strings inputstring();
 };
+void test();
