@@ -6,7 +6,7 @@ class Strings
 private: 
 	char m_value[255];
 	int m_length;
-	int index;
+	int m_index;
 public:
 	Strings::Strings();
 	Strings(char[]);
@@ -21,7 +21,7 @@ public:
 	Strings uppercase();
 	bool substring(Strings);
 	bool substring2(Strings, int);
-	Strings sub2sub();
+	Strings sub2sub(Strings, Strings);
 	Strings inputstring();
 };
 void test();

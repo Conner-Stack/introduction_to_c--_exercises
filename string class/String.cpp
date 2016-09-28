@@ -195,11 +195,11 @@ bool Strings::substring(Strings substring)
 				if (this->m_value[ i + j ] == substring.m_value[j])
 				{
 					found = true;
-					index = i;
+					m_index = i;
 				}
 				else
 				{
-					index = 0;
+					m_index = 0;
 					found = false;
 				}
 			}
@@ -224,11 +224,11 @@ bool Strings::substring2(Strings substring, int e)
 				if (this->m_value[i + j] == substring.m_value[j])
 				{
 					found = true;
-					index = i;
+					m_index = i;
 				}
 				else
 				{
-					index = 0;
+					m_index = 0;
 					found = false;
 				}
 			}
@@ -245,12 +245,12 @@ Strings Strings::sub2sub(Strings substrig, Strings replacement)
 	int wordsize = this->length() - substrig.length() + replacement.length();
 	char* ptr = new char[wordsize];
 	
-	for (int i = 0; i < index; i++)
+	for (int i = 0; i < m_index; i++)
 	{
 		ptr[i] = this->m_value[i];
 
 	}
-	for (int i = index, j = 0; i < replacement.length() + index; i++, j++)
+	for (int i = m_index, j = 0; i < replacement.length() + m_index; i++, j++)
 	{
 
 

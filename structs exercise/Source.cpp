@@ -36,7 +36,7 @@ struct rectangle
 
 struct player2
 {
-	int health;
+	char name[20];
 	int score;
 
 
@@ -49,22 +49,38 @@ void second()
 
 	player2 frank;
 
-	cin >> frank.health >> frank.score;
+	cin >> frank.name >> frank.score;
+	cout << frank.name << endl << frank.score << endl;
+
+}
+
+
+void playermult()
+{
+
+	player2 player[5];
+	for (int i = 0; i < 5; i++)
+	{
+		cin >> player[i].name >> player[i].score;
 
 
 
+
+	}
+	for (int i = 0; i < 5; i++)
+	{
+		cout << player[i].name << " " << player[i].score << endl;
+
+
+	}
 
 
 }
 int main()
 {
-
-
-
-
-
-
+	playermult();
 
 	system("pause");
 	return 0;
+
 }
