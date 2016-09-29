@@ -143,7 +143,7 @@ Strings Strings::lowercase()
 	//assigned and int to represent the change in asciivalue from uppercase to lowercase
 	int asciivalue;
 	//made a character pointer that points to the address of m_value starting at the first array slot
-	char* stringptr = new char [length()];
+	char* stringptr = &m_value[0];
 	//using a for loop to iterate through the length of the word to access each individual array
 	for (int i = 0; i < this->length(); i++)
 	{
@@ -230,7 +230,7 @@ bool Strings::substring(Strings substring)
 	//return found
 	return found;
 }
-//same thing as above juust with an integer that determines where to start looking for the substring
+//
 bool Strings::substring2(Strings substring, int e)
 {
 	bool found = false;
@@ -284,6 +284,7 @@ bool Strings::substring2(Strings substring, int e)
 
 void test()
 {
+	Strings daStringwut = Strings("Hello");
 	Strings daString = Strings("Hello");
 	Strings daString2 = Strings("goodbye");
 	Strings SubStringfind = Strings("el");
@@ -307,6 +308,8 @@ void test()
 	(found == true) ? cout << "found it!" << endl : cout << "nosir" << endl;
 	bool found2 = daString.substring2(SubStringfind, 3);
 	(found == true) ? cout << "found" << endl : cout << "nope" << endl;
+
+
 }
 
 

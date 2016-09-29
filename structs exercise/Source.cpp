@@ -57,7 +57,8 @@ void second()
 
 void playermult()
 {
-
+	char findname[50];
+    bool namefound = false;
 	player2 player[5];
 	for (int i = 0; i < 5; i++)
 	{
@@ -73,14 +74,45 @@ void playermult()
 
 
 	}
+	
+	
+	cin >> findname;
+	for (int i = 0; i < 5; i++)
+	{
+		if (strcmp(player[i].name, findname) == 0)
+		{
+			namefound = true;
+			cout << player[i].score << endl;
+			break;
+		}
+		else if (strcmp(player[i].name, findname) != 0)
+		{
+			namefound = false;
+		
+		}
+		}
+	if (namefound == false)
+	{
+		cout << "name not found" << endl;
+	}
+	}
 
 
-}
+struct item
+{
+	int items = 5;
+	int cost;
+	int shopgold = 1000;
+	char itemname[20];
+	int quantity = 0;
+
+};
 int main()
 {
-	playermult();
 
+
+
+	
 	system("pause");
 	return 0;
-
 }

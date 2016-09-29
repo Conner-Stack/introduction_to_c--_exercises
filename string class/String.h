@@ -21,7 +21,7 @@ public:
 	Strings uppercase();
 	bool substring(Strings);
 	bool substring2(Strings, int);
-	Strings sub2sub(Strings, Strings);
-	Strings inputstring();
+	/*Strings sub2sub(Strings, Strings);
+	Strings inputstring();*/
 };
 void test();
