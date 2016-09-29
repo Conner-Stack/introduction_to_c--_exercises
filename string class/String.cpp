@@ -3,10 +3,6 @@
 #include <cassert>
 
 using namespace std;
-//this is my default constructor
-Strings::Strings()
-{
-}
 
 //this lets me input a string and makes the string in private equal to it
 Strings::Strings(char newString[])
@@ -58,41 +54,52 @@ bool Strings::compare(Strings extraString)
 	//setting a loop to iterate through every character in the arrays until one of them hits the null character
 	while (this->m_value[i] != '\0' || extraString.m_value[i] != '\0')
 	{
+		//states that if the current iteration in the array of the assigned m_value variable is the same as the iteration of extrastring m_value, do stuff
 		if (this->m_value[i] == extraString.m_value[i])
 		{
+			//states that if the condition above is met, compare is set to true
 			compare = true;
 		}
+		//states that if otherwise if the current iteration in the array of the assigned m_value does not equal the  iteration of extrastring m_value, to do this instead
 		else if (this->m_value[i] != extraString.m_value[i])
 		{
+			//compare will be set to false if the above condition is met
 			compare = false;
+			//break out of the loop
 			break;
 		}
+		//adds 1 to i each loop until broken out of
 		i++;
 	}
+	//returns true or false
 	return compare;
 }
-//not sure why I'm using Strings as a function type and an argument nor how i can
+//appends the argument to the assigned string that calls the function
 Strings Strings::append(Strings stringAppend)
 {
-	//made an integer to up the array to accomodate the new appended string
+	//the beginning of making a new array size that can fit both strings and a null terminator
 	int newsize = this -> length() + stringAppend.length() ;
-	//not exactly sure what this does
+	//adds some space in memory for the new variable
 	char* afg = new char [newsize];
-	//jeremy helped me from here on out but i couldn't really grasp what any of this does
+	//loops through the length of the string that calls the function
 	for (int i = 0; i < this->length(); i++)
 	{
-
+		//assigns the new variable the characters from m_value
 		afg[i] = this->m_value[i];
 
 	}
-	
+	//loops to add the other string starting directly after the last iteration used to add m_value, adds both strings together in the condition so it will iterate far enough to add the second string before breaking
 	for (int i = this -> length(); i < stringAppend.length() + this -> length(); i++)
 	{
+		//the offset is used to start stringappend variable at it's first array to add it to the end of afg
 		int offset = i - this -> length();
+		//iterates through afg starting where this->length() left off, adding all the letters from stringAppend
 		afg[i] = stringAppend.m_value[offset];
 
 	}
+	//adds the null terminator to the end of the array
 	afg[newsize] = '\0';
+	//returns the new character string
 	return Strings(afg);
 
 }
@@ -215,7 +222,7 @@ bool Strings::substring(Strings substring)
 				{
 					//boolean found will equal true if the iterations of the substring are the same as the iterations in the string
 					found = true;
-			
+					m_index = i;
 			
 				}
 				//states that if the prior statement is not true that bool found equals false
@@ -223,6 +230,7 @@ bool Strings::substring(Strings substring)
 				{
 					
 					found = false;
+					m_index = 0;
 				}
 			}
 		}
@@ -284,28 +292,51 @@ bool Strings::substring2(Strings substring, int e)
 
 void test()
 {
+	//sets m_value to Hello if assigned to a function
 	Strings daString = Strings("Hello");
+	//sets m_value to goodbye if assigned to a function
 	Strings daString2 = Strings("goodbye");
+	//sets the substring i want to find to include the characters e and l
 	Strings SubStringfind = Strings("el");
+	//calling the length function using daString
 	int length = daString.length();
+	//printing the result to the console
 	cout << "the length of your word is: " << length << endl;
+	//call the indexchar function to find what character you want in daString
 	char letterblock = daString.indexchar(4);
+	//prints said character to console
 	cout << "you picked letter: " << letterblock << endl;
+	//calls the compare function, comparing daString and daString2
 	bool result = daString.compare(daString2);
+	//prints result to console, 1 for true, 0 for false
 	cout << "is the length true or false? " << result << endl;
+	//calls the append function adding daString2 to the end of daString
 	Strings appendedString = daString.append(daString2);
+	//prints all the characters from the above function
 	appendedString.printWord();
+	//calls the prepend function to add daString2 to the front of daString
 	Strings PrependedString = daString.prepend(daString2);
+	//prints all the characters in order from the above function
 	PrependedString.printWord();
+	//calls the constant function to change m_value to a constant character
 	const char* constant = daString.constant();
+	//prints m_value as a constant character
 	cout << constant << endl;
+	//calls the lowercase function turning any capital letters in daString to lowercase
 	Strings lowercase = daString.lowercase();
+	//prints the array to the console as all lowercase letters
 	lowercase.printWord();
+	//calls the uppercase function turning any lowercase letters in daString to uppercase
 	Strings uppercase = daString.uppercase();
+	//prints the array to the console as all uppercase letters
 	uppercase.printWord();
+	//calls the substring function to use the value of SubStringfind as a reference to potentially find the substring in daString if there is one
 	bool found = daString.substring(SubStringfind);
+	//if found is true, print "found it!" to console, if false, print nosir
 	(found == true) ? cout << "found it!" << endl : cout << "nosir" << endl;
+	//calls the substring2 function, which does the same thing as the substring function, however starts at the address you specify using the second argument variable
 	bool found2 = daString.substring2(SubStringfind, 3);
+	//basically the same thing as the prior result
 	(found == true) ? cout << "found" << endl : cout << "nope" << endl;
 }
 
