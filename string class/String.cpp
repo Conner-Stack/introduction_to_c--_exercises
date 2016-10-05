@@ -199,7 +199,7 @@ Strings Strings::uppercase()
 	return Strings(stringptr);
 }
 //using a boolean function to see if the string contains the given substring
-bool Strings::substring(Strings substring)
+bool Strings::findsubstring(Strings substring)
 {
 	//initializes our boolean found to false
 	bool found = false;
@@ -238,7 +238,7 @@ bool Strings::substring(Strings substring)
 	//return found
 	return found;
 }
-//same thing as above juust with an integer that determines where to start looking for the substring
+//same thing as above just with an integer that determines where to start looking for the substring
 bool Strings::substring2(Strings substring, int e)
 {
 	bool found = false;
@@ -265,30 +265,38 @@ bool Strings::substring2(Strings substring, int e)
 	}
 	return found;
 }
+//function for replacing a substring in a string with another
+Strings Strings::sub2sub(Strings substring, Strings replacement)
+{
+	int newindex = 0;
+	findsubstring(substring);
 
-//Strings Strings::sub2sub(Strings substrig, Strings replacement)
-//{
-//	
-//	substring(substrig);
-//
-//	int wordsize = this->length() - substrig.length() + replacement.length();
-//	char* ptr = new char[wordsize];
-//	
-//	for (int i = 0; i < m_index; i++)
-//	{
-//		ptr[i] = this->m_value[i];
-//
-//	}
-//	for (int i = m_index, j = 0; i < replacement.length() + m_index; i++, j++)
-//	{
-//
-//
-//	}
-//
-//
-//
-//	return ;
-//}
+	int newsize = this->length() - substring.length() + replacement.length();
+	
+	char* newarray = new char[newsize];
+	
+	for (int i = 0; i < m_index; i++)
+	{
+
+		newarray[i] = m_value[i];
+	}
+	for (int i = m_index , j = 0; i < substring.length() + replacement.length(); i++, j++)
+	{
+		newarray[i] = replacement.m_value[j];
+
+	}
+	for (int i = m_index + replacement.length(), j = m_index + substring.length(); i < newsize; i++, j++)
+	{
+		newarray[i] = m_value[j];
+}
+
+
+		newarray[newsize] = '\0';
+		return Strings(newarray);
+}
+
+
+
 
 void test()
 {
@@ -299,6 +307,7 @@ void test()
 	//sets the substring i want to find to include the characters e and l
 	Strings SubStringfind = Strings("el");
 	//calling the length function using daString
+	Strings SubStringRep = Strings("balls");
 	int length = daString.length();
 	//printing the result to the console
 	cout << "the length of your word is: " << length << endl;
@@ -331,13 +340,20 @@ void test()
 	//prints the array to the console as all uppercase letters
 	uppercase.printWord();
 	//calls the substring function to use the value of SubStringfind as a reference to potentially find the substring in daString if there is one
-	bool found = daString.substring(SubStringfind);
+	bool found = daString.findsubstring(SubStringfind);
 	//if found is true, print "found it!" to console, if false, print nosir
 	(found == true) ? cout << "found it!" << endl : cout << "nosir" << endl;
 	//calls the substring2 function, which does the same thing as the substring function, however starts at the address you specify using the second argument variable
 	bool found2 = daString.substring2(SubStringfind, 3);
 	//basically the same thing as the prior result
 	(found == true) ? cout << "found" << endl : cout << "nope" << endl;
+	//defines and calls the sub2sub function to replace a substring with another
+	Strings subreplace = daString.sub2sub(SubStringfind, SubStringRep);
+	//prints out the new array
+	subreplace.printWord();
+
+
+
 }
 
 

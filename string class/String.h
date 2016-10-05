@@ -34,10 +34,11 @@ public:
 	//the reverse of lowercase
 	Strings uppercase();
 	//finds a substring within m_value if it has one
-	bool substring(Strings);
+	bool findsubstring(Strings);
 	//finds a substring within m_value starting at a specific iteration in the loop
 	bool substring2(Strings, int);
+	//switches a substring out with a new one
 	Strings sub2sub(Strings, Strings);
-	Strings inputstring();
 };
+//groups all the calls for the functions
 void test();
