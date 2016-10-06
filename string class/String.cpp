@@ -268,30 +268,33 @@ bool Strings::substring2(Strings substring, int e)
 //function for replacing a substring in a string with another
 Strings Strings::sub2sub(Strings substring, Strings replacement)
 {
-	int newindex = 0;
+	//calling a function that has the equation to find the substring
 	findsubstring(substring);
-
+	//making a new integer for an array size
 	int newsize = this->length() - substring.length() + replacement.length();
-	
+	//making a new character array pointer using the newsize int
 	char* newarray = new char[newsize];
-	
+	//making a for loop dumping characters up to the beginning of the substring you want to replace
 	for (int i = 0; i < m_index; i++)
 	{
 
 		newarray[i] = m_value[i];
 	}
+	//dumping the new substring in place of the old one
 	for (int i = m_index , j = 0; i < substring.length() + replacement.length(); i++, j++)
 	{
 		newarray[i] = replacement.m_value[j];
 
 	}
+	//dumping the rest of the string's letters in
 	for (int i = m_index + replacement.length(), j = m_index + substring.length(); i < newsize; i++, j++)
 	{
 		newarray[i] = m_value[j];
 }
 
-
+	//adding a null terminator at the end
 		newarray[newsize] = '\0';
+		//returning the newarray as a string
 		return Strings(newarray);
 }
 
@@ -300,60 +303,101 @@ Strings Strings::sub2sub(Strings substring, Strings replacement)
 
 void test()
 {
+	
 	//sets m_value to Hello if assigned to a function
-	Strings daString = Strings("Hello");
+	Strings daString = Strings("HelLo");
 	//sets m_value to goodbye if assigned to a function
 	Strings daString2 = Strings("goodbye");
 	//sets the substring i want to find to include the characters e and l
 	Strings SubStringfind = Strings("el");
-	//calling the length function using daString
+	//string used to replace the substring
 	Strings SubStringRep = Strings("balls");
+	cout << "/n==============length of the string==============\n\n\n";
+	cout << "the string being used to call the function from is: "; 
+	daString.printWord();
+	//calling the length function using daString
 	int length = daString.length();
 	//printing the result to the console
 	cout << "the length of your word is: " << length << endl;
+	cout << "/n===========character index pull============\n\n\n";
+	cout << "the string being used to call the function from is: ";
+	daString.printWord();
 	//call the indexchar function to find what character you want in daString
 	char letterblock = daString.indexchar(4);
 	//prints said character to console
 	cout << "you picked letter: " << letterblock << endl;
+	cout << "/n=========compare two strings===========/n\n\n";
+	cout << "the string being used to call the function from is: ";
+	daString.printWord();
 	//calls the compare function, comparing daString and daString2
 	bool result = daString.compare(daString2);
 	//prints result to console, 1 for true, 0 for false
 	cout << "is the length true or false? " << result << endl;
+		cout << "/n=========append another string to your main string=============/n\n\n";
+	cout << "the string being used to call the function from is: ";
+	daString.printWord();
+	cout << "the string being appended is: ";
+	daString2.printWord();
 	//calls the append function adding daString2 to the end of daString
 	Strings appendedString = daString.append(daString2);
 	//prints all the characters from the above function
 	appendedString.printWord();
+	cout << "/n=========prepend a string to your main string=========/n\n\n";
+	cout << "the string being used to call the function from is: ";
+	daString.printWord();
+	cout << "the string being prepended is: ";
+	daString2.printWord();
 	//calls the prepend function to add daString2 to the front of daString
 	Strings PrependedString = daString.prepend(daString2);
 	//prints all the characters in order from the above function
 	PrependedString.printWord();
+	cout << "/n==========make your main string a constant==========/n\n\n";
+	cout << "the string being used to call the function from is: ";
+	daString.printWord();
 	//calls the constant function to change m_value to a constant character
 	const char* constant = daString.constant();
 	//prints m_value as a constant character
 	cout << constant << endl;
+	cout << "/n==========make your string all lowercase==============/n/n\n";
+	cout << "the string being used to call the function from is: ";
 	//calls the lowercase function turning any capital letters in daString to lowercase
+	daString.printWord();
 	Strings lowercase = daString.lowercase();
 	//prints the array to the console as all lowercase letters
 	lowercase.printWord();
+	cout << "/n===========make your string all uppercase===========/n/n\n";
+	cout << "the string being used to call the function from is: ";
+	daString.printWord();
 	//calls the uppercase function turning any lowercase letters in daString to uppercase
 	Strings uppercase = daString.uppercase();
 	//prints the array to the console as all uppercase letters
 	uppercase.printWord();
 	//calls the substring function to use the value of SubStringfind as a reference to potentially find the substring in daString if there is one
+	cout << "/n==========find and confirm a selected substring=======/n/n\n";
+	cout << "the string being used to call the function from is: ";
+	daString.printWord();
+	//calls the substring function to use the value of SubStringfind as a reference to potentially find the substring in daString if there is one
 	bool found = daString.findsubstring(SubStringfind);
 	//if found is true, print "found it!" to console, if false, print nosir
 	(found == true) ? cout << "found it!" << endl : cout << "nosir" << endl;
+	cout << "/n============find and confirm substring starting at certain index============/n/n\n";
+	cout << "the string being used to call the function from is: ";
+	daString.printWord();
 	//calls the substring2 function, which does the same thing as the substring function, however starts at the address you specify using the second argument variable
 	bool found2 = daString.substring2(SubStringfind, 3);
 	//basically the same thing as the prior result
 	(found == true) ? cout << "found" << endl : cout << "nope" << endl;
+	cout << "/n=======replace a substring with another substring";
+	cout << "the string being used to call the function from is: ";
+	daString.printWord();
+	cout << "the substring being replaced is: ";
+	SubStringfind.printWord();
+	cout << "the substring replacing is called: ";
+	SubStringRep.printWord();
 	//defines and calls the sub2sub function to replace a substring with another
 	Strings subreplace = daString.sub2sub(SubStringfind, SubStringRep);
 	//prints out the new array
 	subreplace.printWord();
-
-
-
 }
 
 
