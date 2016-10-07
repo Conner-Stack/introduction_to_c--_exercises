@@ -151,59 +151,119 @@ void arraysequence( int array_input[], int arraylength)
 }
 
 //question 13
-int onenum(int thearray[], int arraylength, int numfound)
-{
-	bool found = false;
-	int i= 0;
-	while (found == false)
-	{
-		
-		if (i < arraylength)
-		{
-				
-			if (thearray[i] == numfound)
-			{
-				found = true;
-				numfound = i;
-				return numfound;
-			}
-i++;
-		}
-		else
-		{
-			found = true;
-			numfound = -1;
-			return numfound;
-		}
-
-	}
-
-}
+//int onenum(int thearray[], int arraylength, int numfound)
+//{
+//	bool found = false;
+//	int i= 0;
+//	while (found == false)
+//	{
+//		
+//		if (i < arraylength)
+//		{
+//				
+//			if (thearray[i] == numfound)
+//			{
+//				found = true;
+//				numfound = i;
+//				return numfound;
+//			}
+//i++;
+//		}
+//		else
+//		{
+//			found = true;
+//			numfound = -1;
+//			return numfound;
+//		}
+//
+//	}
+//
+//}
 
 //question 14
-int Split(int inputarray[], int arraylength, int output1[], int output2[])
-{	
-		for (int i = 0; i < arraylength; i++)
-		{
-			if (inputarray[i] < 0)
-			{
-				output1[i] = inputarray[i];
-				return output1[i];
-			}
+//int Split(int inputarray[], int arraylength, int output1[], int output2[])
+//{	
+//	int countpos = 0;
+//	int countneg = 0;
+//	int current = 0;
+//	for (int i = 0; i < arraylength; i++)
+//		{
+//			current = inputarray[i];
+//				if (inputarray[i] >= 0)
+//			{
+//					output1[countpos] = inputarray[i];
+//					countpos++;
+//				}
+//else if (inputarray[i] < 0)
+//			{
+//				output2[countneg] = inputarray[i];
+//				countneg++;
+//}
+//
+//		
+//
+//			
+//	}
+//	return countpos;
+//}
 
-			else if (inputarray[i] >= 0)
-			{
-				output2[i] = inputarray[i];
-			}
+//Question 15
+//int expo(int x, int y)
+//{
+//
+//	for (int i = 0; i < y; i++)
+//	{
+//		x *= x;
+//	}
+//
+//
+//	return x;
+//}
 
+//Question 16
 
-
-	}
-}
-
+//void looknsay(int arrayz[], int arraylength)
+//{
+//	int count = 0;
+//	int countnum = 0;
+//	int j = 0;
+//
+//	for (int i = 0; i < arraylength; i++)
+//	{
+//		count = 0;
+//		
+//		countnum = arrayz[i];
+//
+//
+//		for (int j = i; j < arraylength; j++)
+//		{
+//			if (countnum == arrayz[j])
+//			{
+//				i = j;
+//				count++;
+//			}
+//			else if (countnum != arrayz[j])
+//			{
+//				break;
+//			}
+//		}
+//		if (i == arraylength - 1)
+//		{
+//			cout << count << "," << countnum;
+//		}
+//		else
+//		{
+//			cout << count << "," << countnum << ",";
+//		}
+//	}
+//
+//}
 
 int main()
 {
+	
+
+
 	//int arrayinput[10] = { 1, -12, -15, 12, 3, 4, -21, 1, 24, 4 };
 	//int negatives[10]{};
 	//int positives[10] = {};
@@ -311,14 +371,34 @@ int main()
 	//cin >> numfound;
 	//int result = onenum(arrayinput, 5, numfound);
 	//cout << result << endl;
-	//system("pause");
-	//return 0;
+	
 
-int arraynums[5] = { 4 , 5, -2 , 12 , -5 };
-int arrout1[5] = {};
-int arrout2[5] = {};
-	int result = Split(arraynums, 5, arrout1, arrout2);
-	cout << result << endl;
+	//Question 14 check
+//int arraynums[5] = { 4 , 5, -2 , 12 , -5 };
+//int arrout1[5];
+//int arrout2[5];
+//	int result = Split(arraynums, 5, arrout1, arrout2);
+//	cout << result << endl;
+	
+	
+	
+//question 15 test code
+
+//int onenum = 5;
+//int twonum = 10;
+//int result = expo(onenum, twonum);
+//cout << result << endl;
+
+	//question 16 test code
+
+//int arrayz[10] = { 1,1,1,2,3,3,2,4,4,5 };
+//
+//looknsay(arrayz, 10);
+	
+	
+	
+	
+	
 	system("pause");
 	return 0;
 
