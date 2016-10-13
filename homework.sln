@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "homework", "homework\homework.vcxproj", "{868EAC48-994F-4FF0-8775-D7BF237A82C2}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Functions", "homework\homework.vcxproj", "{868EAC48-994F-4FF0-8775-D7BF237A82C2}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "structs exercise", "structs exercise\structs exercise.vcxproj", "{93A9B976-7871-4E6E-B64B-EAD6DD257604}"
 EndProject
@@ -24,6 +24,14 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "10.7 gist assignment", "10.7 gist assignment\10.7 gist assignment.vcxproj", "{1393E1AD-ED16-488B-B47A-61F7D0B72ABB}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project7", "Project7\Project7.vcxproj", "{513136C0-5072-41A3-8516-3A1D06B61E84}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "class exercise troll orc inheritence pointer", "Project8\Project8.vcxproj", "{EBD98A73-1460-4C76-B8FF-8628F6D9EE54}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "morning gist assignment 10.13", "morning gist assignment 10.13\morning gist assignment 10.13.vcxproj", "{92AD7F2B-4484-4F98-AE20-4405598B7161}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vehicles inheritance exercise", "Project9\Project9.vcxproj", "{D24EA43F-48B9-4855-8288-1DD6FB071071}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rps game port", "rps game port\rps game port.vcxproj", "{3BB33EE2-7014-41F4-9982-B29F9D768599}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -121,6 +129,38 @@ Global
 		{513136C0-5072-41A3-8516-3A1D06B61E84}.Release|x64.Build.0 = Release|x64
 		{513136C0-5072-41A3-8516-3A1D06B61E84}.Release|x86.ActiveCfg = Release|Win32
 		{513136C0-5072-41A3-8516-3A1D06B61E84}.Release|x86.Build.0 = Release|Win32
+		{EBD98A73-1460-4C76-B8FF-8628F6D9EE54}.Debug|x64.ActiveCfg = Debug|x64
+		{EBD98A73-1460-4C76-B8FF-8628F6D9EE54}.Debug|x64.Build.0 = Debug|x64
+		{EBD98A73-1460-4C76-B8FF-8628F6D9EE54}.Debug|x86.ActiveCfg = Debug|Win32
+		{EBD98A73-1460-4C76-B8FF-8628F6D9EE54}.Debug|x86.Build.0 = Debug|Win32
+		{EBD98A73-1460-4C76-B8FF-8628F6D9EE54}.Release|x64.ActiveCfg = Release|x64
+		{EBD98A73-1460-4C76-B8FF-8628F6D9EE54}.Release|x64.Build.0 = Release|x64
+		{EBD98A73-1460-4C76-B8FF-8628F6D9EE54}.Release|x86.ActiveCfg = Release|Win32
+		{EBD98A73-1460-4C76-B8FF-8628F6D9EE54}.Release|x86.Build.0 = Release|Win32
+		{92AD7F2B-4484-4F98-AE20-4405598B7161}.Debug|x64.ActiveCfg = Debug|x64
+		{92AD7F2B-4484-4F98-AE20-4405598B7161}.Debug|x64.Build.0 = Debug|x64
+		{92AD7F2B-4484-4F98-AE20-4405598B7161}.Debug|x86.ActiveCfg = Debug|Win32
+		{92AD7F2B-4484-4F98-AE20-4405598B7161}.Debug|x86.Build.0 = Debug|Win32
+		{92AD7F2B-4484-4F98-AE20-4405598B7161}.Release|x64.ActiveCfg = Release|x64
+		{92AD7F2B-4484-4F98-AE20-4405598B7161}.Release|x64.Build.0 = Release|x64
+		{92AD7F2B-4484-4F98-AE20-4405598B7161}.Release|x86.ActiveCfg = Release|Win32
+		{92AD7F2B-4484-4F98-AE20-4405598B7161}.Release|x86.Build.0 = Release|Win32
+		{D24EA43F-48B9-4855-8288-1DD6FB071071}.Debug|x64.ActiveCfg = Debug|x64
+		{D24EA43F-48B9-4855-8288-1DD6FB071071}.Debug|x64.Build.0 = Debug|x64
+		{D24EA43F-48B9-4855-8288-1DD6FB071071}.Debug|x86.ActiveCfg = Debug|Win32
+		{D24EA43F-48B9-4855-8288-1DD6FB071071}.Debug|x86.Build.0 = Debug|Win32
+		{D24EA43F-48B9-4855-8288-1DD6FB071071}.Release|x64.ActiveCfg = Release|x64
+		{D24EA43F-48B9-4855-8288-1DD6FB071071}.Release|x64.Build.0 = Release|x64
+		{D24EA43F-48B9-4855-8288-1DD6FB071071}.Release|x86.ActiveCfg = Release|Win32
+		{D24EA43F-48B9-4855-8288-1DD6FB071071}.Release|x86.Build.0 = Release|Win32
+		{3BB33EE2-7014-41F4-9982-B29F9D768599}.Debug|x64.ActiveCfg = Debug|x64
+		{3BB33EE2-7014-41F4-9982-B29F9D768599}.Debug|x64.Build.0 = Debug|x64
+		{3BB33EE2-7014-41F4-9982-B29F9D768599}.Debug|x86.ActiveCfg = Debug|Win32
+		{3BB33EE2-7014-41F4-9982-B29F9D768599}.Debug|x86.Build.0 = Debug|Win32
+		{3BB33EE2-7014-41F4-9982-B29F9D768599}.Release|x64.ActiveCfg = Release|x64
+		{3BB33EE2-7014-41F4-9982-B29F9D768599}.Release|x64.Build.0 = Release|x64
+		{3BB33EE2-7014-41F4-9982-B29F9D768599}.Release|x86.ActiveCfg = Release|Win32
+		{3BB33EE2-7014-41F4-9982-B29F9D768599}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
