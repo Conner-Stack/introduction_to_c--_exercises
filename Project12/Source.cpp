@@ -3,8 +3,9 @@
 
 using namespace std;
 
+
 template<typename A>
-A min(A a, A b)
+A Min(A a, A b)
 {
 	if (a < b)
 		return a;
@@ -13,7 +14,7 @@ A min(A a, A b)
 
 }
 template<typename A>
-A max(A a, A b)
+A Max(A a, A b)
 {
 	if (a > b)
 		return a;
@@ -32,8 +33,8 @@ B Clamp(B a, B b, B c)
 		return c;
 
 }
-template<typename A>
-A minChar(char a, char b)
+template<>
+char Min(char a, char b)
 {
 	if (a == b || a - 32 == b || a + 32 == b)
 		return NULL;
@@ -42,8 +43,8 @@ A minChar(char a, char b)
 	else if (b < a - 32 && b + 32 < a)
 		return b;
 }
-template<typename A>
-A maxChar(char a, char b)
+template<>
+char Max(char a, char b)
 {
 	if (a == b || a - 32 == b || a + 32 == b)
 		return NULL;
@@ -55,45 +56,63 @@ A maxChar(char a, char b)
 template<class T>
 class arry
 {
+	//made an array pointer determinant on the given template type, an integer for the size of the array we want, and an integer to locate the index I need
 private:
+	
 	int m_size;
 	int m_index;
+	//using template for arraypnt 
 	T* arraypnt;
 public:
-	heaparry()
+	//constructor
+	heaparry(int a)
 	{
-		m_size = 2;
+		//setting the size to start at 2, supposed to get size to start at zero however not sure how to multiply by 0
+		m_size = a;
+		//setting the inde
 		m_index = 0;
-		arraypnt = new T[m_size];
+		a
+			rraypnt = new T[m_size];
 	}
+	//deconstructs the class as soon as it goes out of scope
 	~arry() {};
+	//adds a variable based on the given template type in a certain slot in the array
 	void add(T a)
 	{
-		T * tmp;
+		//if the index + 1 and m_size are the same, do stuff in the brackets, the +1 is more for the null pointer in character arrays
 		if (m_index + 1 == m_size)
 		{
+			//calling the function to expand the size of the array
 			expand();
 		}
+
 		m_index++;
 		arraypnt[m_index] = a;
 	}
+//used to double the size of the array should it not have enough space
 	void expand()
 	{
+		//added a "temporary" pointer to store what is currently indexed so I don't lose my data when I delete the data on my main pointer
 		T * tmp;
-		if (m_index + 1 == m_size)
-		{
-			tmp = new T[m_size *= 2]
-				for (int i = 0; i < m_size + 1; i++)
+		//giving the temp pointer the new array size as specified
+		tmp = new T[m_size *= 2];
+		//iterates to the last index before the size cap
+				for (int i = 0; i < m_size; i++)
 				{
+					//copies arrapnt's contents to tmp
 					tmp[i] = arraypnt[i];
 				}
+				//deletes the array data in arraypnt;
 			delete[] arraypnt;
+			//multiplies the size by 2
 			m_size *= 2;
+			//gives what's stored in the temp back to the arraypnt
 			arraypnt = tmp;
 	}
 };
 int main()
 {
+
 	system("pause");
 	return 0;
 }
