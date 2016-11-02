@@ -1,4 +1,5 @@
 #include <iostream>
+#include "LinkedList.h"
 using namespace std;
 
 struct nodeType
@@ -8,6 +9,9 @@ struct nodeType
 	nodeType * link;
 
 };
+
+
+
 int main()
 {
 	nodeType * Head;
