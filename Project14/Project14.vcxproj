@@ -19,8 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="Source.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LinkedList.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{F3D31E44-7F30-45BC-9AE4-A177CDFE4838}</ProjectGuid>
