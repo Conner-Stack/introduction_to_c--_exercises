@@ -35,8 +35,8 @@ public:
 	}
 	Vector2D operator * (Vector2D other)
 	{
-		int a = this->x * other.x;
-		int b = this->y * other.y;
+		Vector2D a = this->x * other;
+		Vector2D b = this->y * other;
 		return Vector2D(a, b);
 	}
 	int tude()
@@ -67,45 +67,45 @@ private:
 public:
 	Vector3D() {};
 
-	Vector3D(int a, int b)
+	Vector3D(int a, int b, int c)
 	{
 		x = a;
 		y = b;
-		z = NULL;
+		z = c;
 	}
 	~Vector3D() {};
 	Vector3D operator + (Vector3D B)
 	{
-		T a = 0;
-		T b = 0;
-		a = this->x + B.x;
-		b = this->y + B.y;
-		return Vector3D(a, b);
+	
+		int a = this->x + B.x;
+		int b = this->y + B.y;
+		int c = this->z + B.z;
+		return Vector3D(a, b, c);
 	}
-	Vector3 operator - (Vector3D B)
+	Vector3D operator - (Vector3D B)
 	{
-		Vector3D a = 0;
-		Vector3D b = 0;
-		a = this->x - B.x;
-		b = this->y - B.y;
-		return Vector3D(a, b);
+		int a = this->x - B.x;
+		int b = this->y - B.y;
+		int c = this->z - B.z;
+		return Vector3D(a, b, c);
 	}
 	Vector3D operator * (Vector3D other)
 	{
-		T a = other * this->x;
-		T b = other * this->y;
-		return Vector3D(a, b);
+		int a = other.x * this->x;
+		int b = other.y * this->y;
+		int c = other.z * this->z;
+		return Vector3D(a, b, c);
 	}
-	T tude()
+	int tude()
 	{
-		T tude = sqrt((this->x * this->x) + (this->y * this->y);
+		int tude = sqrt((this->x * this->x) + (this->y * this->y);
 		return tude;
 	}
 	Vector3D normie()
 	{
-		T disLength = this->tude();
+		int disLength = this->tude();
 
-		return (this.x / disLength), (this.y / disLength)
+		return Vector3D((this->x / disLength), (this->y / disLength), (this->z / disLength));
 	}
 	int dot(Vector3D other)
 	{
