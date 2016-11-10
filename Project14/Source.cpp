@@ -2,32 +2,23 @@
 #include "LinkedList.h"
 using namespace std;
 
-struct nodeType
-{
-	int info;
-
-	nodeType * link;
-
-};
-
-
-
 int main()
 {
-	//nodeType * Head;
-	//nodeType a, b, c;
-	//c.info = 4;
-	//b.info = 2;
-	//a.info = 0;
-	//c.link = &b;
-	//b.link = &a;
-	//Head = &c;
-	//cout << Head->info << c.link->info 
+	//creates an empty variable of linkedListType
+	linkedListType<int> firstList;
+	//initializes my list to an empty state
+	firstList.initializeList();
+	//inserts a node with a variable
+	firstList.insertFirst(8);
+	//points to the next spot in the list, sets a value
+	firstList.insertLast(0);
+	//same as above
+	firstList.insertLast(0);
+	//same as above
+	firstList.insertLast(8);
 
+	linkedListType<int> secList 
 
-
-
-
-	system("pause");<< b.link->info;
+	system("pause");
 	return 0;
 }

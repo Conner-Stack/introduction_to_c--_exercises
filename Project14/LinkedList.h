@@ -42,7 +42,7 @@ public:
 	linkedListIterator<T> operator++()
 	{
 		this->current = current->Link;
-		return *this
+		return *this;
 	}
 
 	//Overlaod the equality operator
@@ -83,13 +83,12 @@ public:
 	//Overload the assignment operator
 	const linkedListType<T>& operator= (const linkedListType<T>& otherList)
 	{
-		this->First = otherList->first;
-		Last = First;
-		if (Last->Link != NULL)
-			this->Last->Link = otherList->last->link;		
-		this->Last = otherList->last;
+		this->copyList(otherList);
+
+
+		return *this;
 	}
-	
+
 	//Initialize the list to an empty state
 	//Postcondition: first = NULL, last = NULL, count = 0;
 	void initializeList()
@@ -115,16 +114,16 @@ public:
 	//Postcondition: Node
 	void print() const
 	{
-		
+
 		nodeType<T> * ptr = First;
 		while (ptr != NULL)
 		{
 			cout << ptr << endl;
 			ptr = ptr->Link;
 		}
-		
-	
-	
+
+
+
 	}
 
 	//Function to return the number of nodes in the list
@@ -136,21 +135,21 @@ public:
 
 	//Function to delete all the nodes from the list
 	//Postcondition: first = NULL, last = NULL, count = 0;
-	void destroyList() 
+	void destroyList()
 	{
-		nodeType<T> * listdest;
-		listdest = First;
-		
-		while (listdest != NULL)
+		nodeType<T> * listdestroy;
+		listdestroy = First;
+
+		while (listdestroy != NULL)
 		{
 			First = First->Link;
-			delete listdest;
-			listdest->First;
+			delete listdestroy;
+			listdestroy->First;
 			count--;
 		}
 		First = NULL;
-			Last = NULL;
-			count = 0;
+		Last = NULL;
+		count = 0;
 	}
 
 	//Function to return the first element in the list
@@ -162,12 +161,12 @@ public:
 		if (this->First = NULL)
 		{
 			return NULL;
-	}
+		}
 		else
 		{
 			return *this->First;
 		}
-	
+
 	}
 
 	//Function to return the last element in the list
@@ -182,15 +181,15 @@ public:
 		}
 		else
 			return *this->Last;
-	
-	
-	}
-		
 
-	//Function to determine whether node is in the list
-	//Postcondition: Returns true if node is in the list
-	//otherwise the value false is returned
-	bool search(const T& nodeInfo)
+
+	}
+	
+
+		//Function to determine whether node is in the list
+		//Postcondition: Returns true if node is in the list
+		//otherwise the value false is returned
+		bool search(const T& nodeInfo)
 	{
 		nodeType<T> *ptr = First;
 		while (ptr != NULL)
@@ -218,7 +217,7 @@ public:
 			First = node;
 			Count++
 		}
-		}
+	}
 
 	//Function to insert node at the end of the list
 	//Postcondition: first points to the new list, node is inserted 
@@ -227,8 +226,8 @@ public:
 	void insertLast(const T& nodeInfo)
 	{
 		nodeType<T> *Node = new nodeType<T>;
-			Node->Info = nodeInfo;
-			Node->Link = NULL;
+		Node->Info = nodeInfo;
+		Node->Link = NULL;
 		if (First == NULL)
 			this->insertFirst(nodeInfo)
 		else
@@ -248,12 +247,12 @@ public:
 		nodeType<T> *tmp = First;
 		while (ptr != NULL)
 		{
-			
+
 			if (ptr->Link->Info = nodeInfo)
 			{
 				tmp = ptr->Link;
 				ptr->Link = ptr->Link->Link;
-					delete tmp;
+				delete tmp;
 				Count--;
 			}
 			if (ptr->Link = NULL)
@@ -267,9 +266,9 @@ public:
 				ptr = ptr->Link;
 				delete tmp;
 				Count--;
-				//first = ptr;
+				
 			}
-	ptr = ptr->Link;	
+			ptr = ptr->Link;
 		}
 
 	}
@@ -278,6 +277,7 @@ public:
 	//Postcondition: Returns an iteratir such that the current is set to first
 	linkedListIterator<T> begin()
 	{
+
 		return linkedListIterator<T>(First);
 	}
 
@@ -299,9 +299,9 @@ public:
 	}
 
 	//copy constructor
-	linkedListType(const linkedListType<T> otherList)
+	linkedListType(const linkedListType<T>& otherList)
 	{
-	
+		*this = otherList;
 	}
 
 	//deconstructor
@@ -317,17 +317,20 @@ private:
 		nodeType<T> * Node;
 		Node = otherList.First;
 		this->destroyList();
+		int i = 0;
 		while (Node != NULL)
 		{
-			this->insertFirst(Node->Info);
-			this->insertLast(Node->Info);
-
-
-
-
-
-			Node = Node->Link;
+			if (i == 0)
+			{
+				this->insertFirst(Node->Info);
+				i++;
+				Node = Node->Link;
+			}
+			else
+			{
+				this->insertLast(Node->Info);
+				Node = Node->Link;
+			}
 		}
-		}
-
+	}
 };
