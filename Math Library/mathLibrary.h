@@ -3,7 +3,7 @@
 #include <cassert>
 using namespace std;
 
-class Vector2D
+class Vector2D 
 {
 private:
 	float x;
@@ -55,6 +55,14 @@ public:
 		Vector2D secondVec = other.normie();
 		float change = this->x * other.x + this->y * other.y;
 		return change;
+	}
+	float getX()
+	{
+		return x;
+	}
+	float getY()
+	{
+		return y;
 	}
 };
 class Vector3D
@@ -119,6 +127,18 @@ public:
 		Vector3D Product = Vector3D((this->y * other.z) - (other.y * this->z), (this->x * other.z) - (other.x * this->z), (this->x * other.y) - (other.x * this->y));
 		return Product;
 	}
+	int getX()
+	{
+		return x;
+	}
+	int getY()
+	{
+		return y;
+	}
+	int getZ()
+	{
+		return z;
+	}
 	};
 class Vector4D
 {
@@ -182,35 +202,137 @@ public:
 		float change = (this->x * other.x) + (this->y * other.y) + (this->z * other.z) + (this->w * other.z);
 		return change;
 	}
+	int getX()
+	{
+		return x;
+	}
+	int getY()
+	{
+		return y;
+	}
+	int getZ()
+	{
+		return z;
+	}
 };
 
 class Matrix2
 {
 private:
-	Vector2D vec1;
-	Vector2D vec2;
+	float m_vec1[2];
+	float m_vec2[2];
 	
 public:
 	Matrix2() {};
-	Matrix2(float a, float b, float c, float d)
-	{
-		vec1 = Vector2D(a, b);
-		vec2 = Vector2D(c, d);
+		Matrix2(float a, float b, float c, float d)
+		{
+			m_vec1[0] = a;
+			m_vec1[1] = b;
 
-	}
+			m_vec2[0] = c;
+			m_vec2[1] = d;
+		}
 		~Matrix2() {};
 		Vector2D operator *(Vector2D vec)
 		{
-		
+			float a = (this->m_vec1[0] * vec.getX()) + (this->m_vec1[1] * vec.getY());
+			float b = (this->m_vec2[0] * vec.getX()) + (this->m_vec2[0] * vec.getY());
 
+			return Vector2D(a, b);
 
+		}
+		Matrix2 operator *(Matrix2 other)
+		{
+			float vec1 = (this->m_vec1[0] * other.m_vec1[0]) + (this->m_vec1[1] * other.m_vec1[1]);
+			float vec2 = (this->m_vec1[0] * other.m_vec2[0]) + (this->m_vec1[1] * other.m_vec1[2]);
+			
+			float vec3 = (this->m_vec2[0] * other.m_vec1[0]) + (this->m_vec2[1] * other.m_vec1[1]);
+			float vec4 = (this->m_vec2[0] * other.m_vec2[0]) + (this->m_vec2[1] * other.m_vec2[2]);
 
+			return Matrix2(vec1, vec2, vec3, vec4);
 		}
 };
 
 
+class Matrix3
+{
+private:
+	//float m_vec1[3];
+	//float m_vec2[3];
+	//float m_vec3[3];
+	float m_vec[3][3];
+public:
+	Matrix3() {};
+	Matrix3(float a1, float a2, float a3, float b1, float b2, float b3, float c1, float c2, float c3)
+	{
+		m_vec[0][0] = a1;
+		m_vec[0][1] = a2;
+		m_vec[0][2] = a3;
+		m_vec[1][0] = b1;
+		m_vec[1][1] = b2;
+		m_vec[1][2] = b3;
+		m_vec[2][0] = c1;
+		m_vec[2][1] = c2;
+		m_vec[2][2] = c3;
+		//m_vec1[0] = a1;
+		//m_vec1[1] = a2;
+		//m_vec1[2] = a3;
+		//m_vec2[0] = b1;
+		//m_vec2[1] = b2;
+		//m_vec2[2] = b3;
+		//m_vec3[0] = c1;
+		//m_vec3[1] = c2;
+		//m_vec3[2] = c3;
+	}
+	Matrix3(float a[3][3])
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++)
+			{
+				m_vec[i][j] = a[i][j];
+
+			}
+		}
+	}
+	~Matrix3() {};
+	Vector3D operator *(Vector3D vec)
+	{
+		float simplify[3] = { vec.getX(), vec.getY, vec.getZ };
+		float answer[3] = { 0, 0, 0 };
+		for (int i = 0; i < 3; i++)
+		{
+
+			for (int j = 0; j < 3; j++)
+			{
+				answer[i] += (this->m_vec[i][j] * simplify[j]);
+			}
+		}
+
+		return Vector3D(answer[0], answer[1], answer[2]);
+	}
+	Matrix3 operator *(Matrix3 other)
+	{
+		float answer[3][3];
+		for (int i = 0; i < 3; i++)
+		{
+
+			for (int j = 0; j < 3; j++)
+			{
+				answer[i][j] = 0;
+				for (int k = 0; k < 3; k++)
+				{
+					answer[i][j] += (this->m_vec[j][k] * other.m_vec[j][k]);
+				}
+			}
+		}	
+		Matrix3 tmp =  Matrix3(answer);
+		return tmp;
+	}
+	
 
 
 
 
 
+};

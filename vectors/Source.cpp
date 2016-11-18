@@ -37,8 +37,8 @@ public:
 	}
 	Vector2D<T> operator * (Vector2D other)
 	{
-		T a = other * this->x;
-		T b = other * this->y;
+		T a = other.x * this->x;
+		T b = other.y * this->y;
 		return Vector2D(a, b);
 	}
 T tude()

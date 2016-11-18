@@ -33,6 +33,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project14", "Project14\Proj
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Math Library", "Math Library\Math Library.vcxproj", "{1F8A0309-19F2-4DF2-ABAC-1C3B1E7EA2AA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gist assignment 11.18", "gist assignment 11.18\gist assignment 11.18.vcxproj", "{B098D24E-516A-4941-B237-5CBAD7DAE97A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -193,6 +195,16 @@ Global
 		{1F8A0309-19F2-4DF2-ABAC-1C3B1E7EA2AA}.Release|x64.Build.0 = Release|x64
 		{1F8A0309-19F2-4DF2-ABAC-1C3B1E7EA2AA}.Release|x86.ActiveCfg = Release|Win32
 		{1F8A0309-19F2-4DF2-ABAC-1C3B1E7EA2AA}.Release|x86.Build.0 = Release|Win32
+		{B098D24E-516A-4941-B237-5CBAD7DAE97A}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{B098D24E-516A-4941-B237-5CBAD7DAE97A}.Debug|x64.ActiveCfg = Debug|x64
+		{B098D24E-516A-4941-B237-5CBAD7DAE97A}.Debug|x64.Build.0 = Debug|x64
+		{B098D24E-516A-4941-B237-5CBAD7DAE97A}.Debug|x86.ActiveCfg = Debug|Win32
+		{B098D24E-516A-4941-B237-5CBAD7DAE97A}.Debug|x86.Build.0 = Debug|Win32
+		{B098D24E-516A-4941-B237-5CBAD7DAE97A}.Release|Any CPU.ActiveCfg = Release|Win32
+		{B098D24E-516A-4941-B237-5CBAD7DAE97A}.Release|x64.ActiveCfg = Release|x64
+		{B098D24E-516A-4941-B237-5CBAD7DAE97A}.Release|x64.Build.0 = Release|x64
+		{B098D24E-516A-4941-B237-5CBAD7DAE97A}.Release|x86.ActiveCfg = Release|Win32
+		{B098D24E-516A-4941-B237-5CBAD7DAE97A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
