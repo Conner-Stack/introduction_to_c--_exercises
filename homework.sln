@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Functions", "homework\homework.vcxproj", "{868EAC48-994F-4FF0-8775-D7BF237A82C2}"
 EndProject
@@ -36,6 +36,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gist assignment 11.18", "gist assignment 11.18\gist assignment 11.18.vcxproj", "{B098D24E-516A-4941-B237-5CBAD7DAE97A}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2DShapes", "..\Project1\Project1\Project1.vcxproj", "{6C9D95B8-2DF8-499F-94DC-33F8B134F1AD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MathLib", "MathLib\MathLib.vcxproj", "{7C0BB36D-B45F-4B1B-80F9-321F0B99306A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -217,6 +219,16 @@ Global
 		{6C9D95B8-2DF8-499F-94DC-33F8B134F1AD}.Release|x64.Build.0 = Release|x64
 		{6C9D95B8-2DF8-499F-94DC-33F8B134F1AD}.Release|x86.ActiveCfg = Release|Win32
 		{6C9D95B8-2DF8-499F-94DC-33F8B134F1AD}.Release|x86.Build.0 = Release|Win32
+		{7C0BB36D-B45F-4B1B-80F9-321F0B99306A}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{7C0BB36D-B45F-4B1B-80F9-321F0B99306A}.Debug|x64.ActiveCfg = Debug|x64
+		{7C0BB36D-B45F-4B1B-80F9-321F0B99306A}.Debug|x64.Build.0 = Debug|x64
+		{7C0BB36D-B45F-4B1B-80F9-321F0B99306A}.Debug|x86.ActiveCfg = Debug|Win32
+		{7C0BB36D-B45F-4B1B-80F9-321F0B99306A}.Debug|x86.Build.0 = Debug|Win32
+		{7C0BB36D-B45F-4B1B-80F9-321F0B99306A}.Release|Any CPU.ActiveCfg = Release|Win32
+		{7C0BB36D-B45F-4B1B-80F9-321F0B99306A}.Release|x64.ActiveCfg = Release|x64
+		{7C0BB36D-B45F-4B1B-80F9-321F0B99306A}.Release|x64.Build.0 = Release|x64
+		{7C0BB36D-B45F-4B1B-80F9-321F0B99306A}.Release|x86.ActiveCfg = Release|Win32
+		{7C0BB36D-B45F-4B1B-80F9-321F0B99306A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
